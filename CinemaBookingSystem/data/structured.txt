@@ -1,0 +1,21 @@
+seat.txt
+id, vi_tri_day, vi_tri_cot, phong_chieu_id, vị trí
+
+
+film.txt
+long id, String name, Date durationTime, EFormat typeOfFilm
+
+showtime
+long id, long idFilm, Date startTime, ERoom idRoom, EFormat format, int quantitySeat,int empty
+
+ticket
+long id, long idOrder, long showTimeId, long idSeat,double total
+
+order
+long id, long idCustomer, String customerName, double total, Date createDate
+
+user
+long id, String nameAccount, String password, String name, int age, EGender gender, String address, String phoneNumber, Date create, erole
+
+
+

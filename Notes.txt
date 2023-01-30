@@ -1,0 +1,20 @@
+In ra màn hình 1 chuỗi
+System.out.println("chuỗi....");
+
+In ra màn hình theo format
+System.out.printf("Tháng %s có %s ngày", month, 31);
+
+Nhập dữ liệu từ bàn phím
+public static Scanner scanner = new Scanner(System.in);
+scanner.nextInt();	// nhập vào 1 số nguyên
+scanner.nextFloat(); // nhập vào số thực
+scanner.nextLine(): // nhập vào 1 chuỗi
+
+Cú pháp để viết 1 hàm trong java
+public static Kiểu dữ liệu trả về/void tenHam([tham số]){
+	// câu lệnh
+	return theo kiểu dữ liệu trả về/void	
+}
+
+
+

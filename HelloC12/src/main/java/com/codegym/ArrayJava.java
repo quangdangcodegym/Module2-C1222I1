@@ -1,5 +1,7 @@
 package com.codegym;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class ArrayJava {
@@ -22,6 +24,8 @@ public class ArrayJava {
         System.out.println(printArray(numbers));
         deleteElementFromIndex(numbers, 1);
         System.out.println(printArray(numbers));
+
+        List<String> a = new ArrayList<>();
     }
 
     public static int findMaxIndex(int[] numbers) {

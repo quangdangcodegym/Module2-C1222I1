@@ -95,6 +95,7 @@ public class ArrayJava2 {
                 for (int j = 1; j < subs.length; j++) {
                     if (original[i + j] != subs[j]) {
                         flag = false;
+                        break;
                     }
                 }
                 if (flag == true) {

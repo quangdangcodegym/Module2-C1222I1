@@ -5,3 +5,21 @@ Các tính chất của interface
 từ khóa super, từ khóa thís
 biến local, biến instance
 JDK, JRE, JVM là gì
+
+
+Đọc và demo
++ equal và hashcode trong java
+https://shareprogramming.net/moi-quan-he-giua-equals-va-hashcode-trong-java/
+https://stackjava.com/java/hashcode-va-equals-trong-java.html
+Sự khác nhau giữa == và equals trong Java - Deft Blog
+https://shareprogramming.net/su-khac-nhau-giua-va-equals-trong-java/
+
+Mối quan hệ giữa equals() và hashCode() trong Java - Deft Blog
+https://shareprogramming.net/moi-quan-he-giua-equals-va-hashcode-trong-java/
+
+Làm thế nào để Set/HashSet đảm bảo các phần tử không trùng lặp?
+https://shareprogramming.net/lam-the-nao-de-set-hashset-dam-bao-cac-phan-tu-khong-trung-lap/
+
+Comparable và comparator
+https://viblo.asia/p/sap-xep-voi-comparable-va-comparator-trong-java-WAyK8dOEKxX
+https://viettuts.vn/java-collection/su-khac-nhau-giua-comparable-va-comparator

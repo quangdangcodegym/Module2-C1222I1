@@ -2,7 +2,7 @@ package com.codegym.oopcomparator;
 
 import java.util.Date;
 
-public abstract class Geometric {
+public abstract class Geometric implements Comparable<Geometric> {
     // private,default, protected, public
     protected String color;
     protected boolean filled;

@@ -42,4 +42,17 @@ public class Rectangle extends Geometric {
                 ", height=" + height +
                 "} area: " + this.getArea() + " primeter: " + this.getPrimeter();
     }
+
+    @Override
+    public int compareTo(Geometric o) {
+        Rectangle r1 = (Rectangle) o;
+
+        if (this.getArea() > r1.getArea()) {
+            return 1;
+        } else if (this.getArea() == r1.getArea()) {
+            return 0;
+        }else{
+            return -1;
+        }
+    }
 }

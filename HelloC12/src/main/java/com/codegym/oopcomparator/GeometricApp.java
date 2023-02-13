@@ -41,7 +41,7 @@ public class GeometricApp {
         printArray(rectangles);
 
         MyComparator myComparator = new ComparatorByPrimeter();
-        sortArray(rectangles, comparatorByArea);
+        sortArray1(rectangles);
 
         System.out.println("Sau khi sap xep");
         printArray(rectangles);
@@ -51,7 +51,7 @@ public class GeometricApp {
     public static <T> void sortArray(T[] arrays, MyComparator myComparator) {
         for (int i = 0; i < arrays.length - 1; i++) {
             for (int j = i+1; j < arrays.length; j++) {
-                if (myComparator.compareTo(arrays[i], arrays[j])==1) {
+                if (myComparator.compare(arrays[i], arrays[j])==1) {
                     T temp = arrays[i];
                     arrays[i] = arrays[j];
                     arrays[j] = temp;
@@ -59,6 +59,22 @@ public class GeometricApp {
             }
         }
     }
+
+    public static <T> void sortArray1(T[] arrays){
+        for (int i = 0; i < arrays.length - 1; i++) {
+            for (int j = i + 1; j < arrays.length; j++) {
+                MyComparable comparable = (MyComparable) arrays[i];
+                if (comparable.compareTo(arrays[j])==1) {
+                    T temp = arrays[i];
+                    arrays[i] = arrays[j];
+                    arrays[j] = temp;
+                }
+            }
+        }
+    }
+
+
+
     public static void printArray(Geometric[] geometrics) {
         for (int i = 0; i < geometrics.length; i++) {
             System.out.println(geometrics[i]);

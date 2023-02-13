@@ -2,7 +2,7 @@ package com.codegym.oopcomparator;
 
 public class ComparatorByArea implements MyComparator<Geometric>{
     @Override
-    public int compareTo(Geometric g1, Geometric g2) {
+    public int compare(Geometric g1, Geometric g2) {
 
         if (g1.getArea() > g2.getArea()) {
             return 1;

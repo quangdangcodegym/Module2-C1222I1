@@ -1,7 +1,7 @@
 package com.codegym.oopcomparator;
 
 
-public class Circle extends Geometric {
+public class Circle extends Geometric{
 
     private float radius;
 
@@ -56,4 +56,15 @@ public class Circle extends Geometric {
     }
 
 
+    @Override
+    public int compareTo(Geometric o) {
+        Circle c1 = (Circle) o;
+        if (this.getArea() > c1.getArea()) {
+            return 1;
+        } else if (this.getArea() == c1.getArea()) {
+            return 0;
+        } else {
+            return -1;
+        }
+    }
 }

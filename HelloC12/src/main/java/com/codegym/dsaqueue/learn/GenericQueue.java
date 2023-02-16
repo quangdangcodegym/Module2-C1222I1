@@ -1,17 +1,25 @@
 package com.codegym.dsaqueue.learn;
 
-public class MyPriorityQueue<E extends Comparable<E>> {
-    private Heap<E> heap;
-    public MyPriorityQueue(){
-        heap = new Heap<>();
+import java.util.LinkedList;
+
+public class GenericQueue<E> {
+    private LinkedList<E> elements;
+
+    public GenericQueue() {
+        elements = new LinkedList<>();
     }
-    public void enqueue(E e){
-        heap.add(e);
+
+    public void enqueue(E e) {
+        elements.addLast(e);
     }
     public E dequeue(){
-        return heap.remove();
+        return elements.removeFirst();
+    }
+    public int getSize(){
+        return elements.size();
     }
     public boolean isEmpty(){
-        return heap.getSize() == 0;
+        return elements.size() == 0;
     }
+
 }

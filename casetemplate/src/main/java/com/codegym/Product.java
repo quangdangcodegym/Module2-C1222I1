@@ -1,6 +1,7 @@
 package com.codegym;
 
 import java.util.Date;
+import java.util.Objects;
 
 public class Product {
     private long id;
@@ -66,5 +67,23 @@ public class Product {
 //        return "Product " + this.name + " price: " + this.price;
         return String.format("%s %s price: %s, description: %s, create At: %s",
                 this.getId(), this.getName(), this.getPrice(), this.getDescription(), this.getCreateAt());
+    }
+
+
+    @Override
+    public boolean equals(Object obj) {
+        Product p = (Product) obj;
+        if (this == p) {
+            return true;
+        }
+        if (this.getName().equals(p.getName())) {
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(this.name);
     }
 }

@@ -35,13 +35,35 @@ public class MyList<E> {
     }
 
     public MyList<E> subList(int from, int to) {
-        return null;
+        MyList<E> results = new MyList<>();
+
+        for (int i = from; i <= to; i++) {
+            results.add(this.get(i));
+        }
+        return results;
     }
 
     public void addAll(MyList<E> listNew) {
-
+        for (int i = 0; i < listNew.getSize(); i++) {
+            this.add(listNew.get(i));
+        }
     }
 
+    public int getSize() {
+        return size;
+    }
+
+    public void setSize(int size) {
+        this.size = size;
+    }
+
+    public Object[] getElements() {
+        return elements;
+    }
+
+    public void setElements(Object[] elements) {
+        this.elements = elements;
+    }
 
     // [3,1,8]
     @Override

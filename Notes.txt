@@ -23,3 +23,10 @@ https://shareprogramming.net/lam-the-nao-de-set-hashset-dam-bao-cac-phan-tu-khon
 Comparable và comparator
 https://viblo.asia/p/sap-xep-voi-comparable-va-comparator-trong-java-WAyK8dOEKxX
 https://viettuts.vn/java-collection/su-khac-nhau-giua-comparable-va-comparator
+
+
+
+
+
+đọc về string format
+https://niithanoi.edu.vn/printf-trong-java.html

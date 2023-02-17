@@ -1,0 +1,5 @@
+Câu 1: Nhập dữ liệu thêm 5 hóa đơn
+Câu 2: Viết chức năng hiển thị hóa đơn theo 1 mã hóa đơn
+Câu 3: Tìm hóa đơn tên hoặc số điện thoại
+Câu 4: *Viết chức năng thêm 1 hóa đơn
+

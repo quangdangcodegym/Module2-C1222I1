@@ -3,3 +3,12 @@ Câu 2: Viết chức năng hiển thị hóa đơn theo 1 mã hóa đơn
 Câu 3: Tìm hóa đơn tên hoặc số điện thoại
 Câu 4: *Viết chức năng thêm 1 hóa đơn
 
+
+------------
+Quản lý Khách hàng
+Câu 1: Thêm, xóa, sửa, khách hàng
+Câu 2: Cập hạng khách hàng dựa vào số năm:
+    + Nếu 2 năm thì từ normal->đồng
+    + Neu trong khách hàng mà tiêu thụ (consumed) được 10tr thì từ normal-> đồng
+    + Nếu tài khoản mà lên 50tr thi lên -> bạc
+    + Nếu tài khoản mà lên 100tr thi lên -> vàng

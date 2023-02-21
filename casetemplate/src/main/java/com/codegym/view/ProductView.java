@@ -1,5 +1,6 @@
-package com.codegym;
+package com.codegym.view;
 
+import com.codegym.service.ProductService;
 import com.codegym.comparator.ComparatorByPrice;
 import com.codegym.model.Product;
 
@@ -11,7 +12,7 @@ public class ProductView {
 
 
 
-    public void laucher() {
+    public void launcher() {
         boolean checkActionMenu = false;
         do {
             System.out.println("Menu quản lý sản phẩm");

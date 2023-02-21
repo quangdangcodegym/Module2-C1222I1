@@ -1,0 +1,3 @@
+Tạo menu cung cáp 2 lựa chọn
+ + Tính tổng các giá trị trước rồi thêm vào cuối file
+ + Lấy giá trị lớn nhất của file rồi thêm vào cuối file

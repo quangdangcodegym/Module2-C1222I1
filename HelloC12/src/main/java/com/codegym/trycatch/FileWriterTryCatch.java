@@ -2,12 +2,10 @@ package com.codegym.trycatch;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.io.PrintWriter;
-import java.security.Principal;
 import java.util.Scanner;
 
-public class FileWriter {
+public class FileWriterTryCatch {
     private static Scanner scanner = new Scanner(System.in);
     public void writeFile() throws FileNotFoundException, ArithmeticException, Chia0Exception{
         File file = new File("C12.txt");

@@ -4,7 +4,7 @@ import java.io.FileNotFoundException;
 
 public class Main {
     public static void main(String[] args) {
-        FileWriter fileWriter = new FileWriter();
+        FileWriterTryCatch fileWriter = new FileWriterTryCatch();
         try {
             fileWriter.writeFile();
         } catch (FileNotFoundException fileNotFoundException) {

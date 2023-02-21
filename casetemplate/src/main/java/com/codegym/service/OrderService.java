@@ -1,4 +1,4 @@
-package com.codegym;
+package com.codegym.service;
 
 import com.codegym.model.Order;
 import com.codegym.model.OrderItem;

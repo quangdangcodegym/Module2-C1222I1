@@ -1,5 +1,8 @@
 package com.codegym;
 
+import com.codegym.view.CustomerView;
+import com.codegym.view.OrderView;
+
 import java.util.Scanner;
 
 public class Main {
@@ -9,10 +12,14 @@ public class Main {
         ProductView productView = new ProductView();
         productView.laucher();
 
+         OrderView orderView = new OrderView();
+         orderView.launcher();
+
          **/
 
-        OrderView orderView = new OrderView();
-        orderView.laucher();
+        CustomerView customerView = new CustomerView();
+        customerView.launcher();
+
 
     }
 }

@@ -1,0 +1,9 @@
+File Customer
+ID, TEN KH, Dien thoai, Dia chi, Ngày tạo, Số tiền đã mua, CustomerType
+1L,Quang Dang,0399578134,28 NTP,20-12-2023 08:00,0,NORMAL
+
+
+File Product
+ID sản phẩm, Tên sản phẩm, Mô tả sản phẩm, giá tiền, ngày tạo sp
+1L,Iphone11,I phone 11 dep quá, 11000,20-12-2023 08:00
+

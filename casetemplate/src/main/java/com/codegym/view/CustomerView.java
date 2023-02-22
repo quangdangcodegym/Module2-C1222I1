@@ -1,7 +1,8 @@
 package com.codegym.view;
 
 import com.codegym.model.Customer;
-import com.codegym.service.CustomerService;
+import com.codegym.service.file.FCustomerService;
+import com.codegym.service.ICustomerService;
 import com.codegym.utils.DateUtils;
 
 import java.util.List;
@@ -9,7 +10,9 @@ import java.util.Scanner;
 
 public class CustomerView {
     private Scanner scanner = new Scanner(System.in);
-    private CustomerService customerService;
+
+    // IM viết tắt: immemory
+    private ICustomerService customerService;
     public void launcher() {
         boolean checkActionMenu = false;
         do {
@@ -113,6 +116,7 @@ public class CustomerView {
             String nameCustomer = scanner.nextLine();
 
             customer.setName(nameCustomer);
+            customerService.updateCustomer(customer.getId(), customer);
             showCustomersView();
         }
 
@@ -120,7 +124,7 @@ public class CustomerView {
 
 
     public CustomerView() {
-        customerService = new CustomerService();
+        customerService = new FCustomerService();
     }
     private void showCustomersView() {
         List<Customer> customers = customerService.getAllCustomers();

@@ -19,32 +19,31 @@ public class App {
         int c0  = app.action(2,3, myFunction);
 
         // Cách nguyên thủy có cải tiến, anonymous function
-        int c1 = app.action(10, 2, new MyFunction() {
+        app.action(3, 4, new MyFunction() {
             @Override
             public int accept(int a, int b) {
-                return a+b;
+                return (a+b)*3;
             }
         });
-        System.out.println("Tổng 2 số: (Cách nguyên thủy) " + c1);
 
         // Cải tiến dùng lamda
         int c12 = app.action(10, 2, (a, b) -> a+b);
-        System.out.println("Tổng 2 số: " + c1);
-        System.out.println("Tổng 2 số: (Cải tiến dùng lamda) " + c1);
+//        System.out.println("Tổng 2 số: " + c1);
+//        System.out.println("Tổng 2 số: (Cải tiến dùng lamda) " + c1);
 
         // :: toán tử tham chiếu, dùng phương thức static
         // tạo đối tượng nặc danh addFunc và cung cấp thân hàm cho hàm accept()
         // bây giờ hàm accept() sẽ có thân hàm giống như hàm MyUtils.add().
         // nghĩa là hệ thống copy hàm MyUtils.add() như một bản cài đặt
         // cho hàm accept()
-        MyFunction addFunc = MyUtils::add;
+//        MyFunction addFunc = MyUtils::add;
         int c123 = app.action(10, 2, MyUtils::add);
-        System.out.println("Tổng 2 số: (:: toán tử tham chiếu, dùng phương thức static) " + c1);
+//        System.out.println("Tổng 2 số: (:: toán tử tham chiếu, dùng phương thức static) " + c1);
 
         // :: toán tử tham chiếu, dùng phương thức từ đối tượng
         Calc calc = new Calc();
         int c1234 = app.action(10, 2, calc::add);
-        System.out.println("Tổng 2 số: (:: toán tử tham chiếu, dùng phương thức từ đối tượng) " + c1);
+//        System.out.println("Tổng 2 số: (:: toán tử tham chiếu, dùng phương thức từ đối tượng) " + c1);
 
 
 

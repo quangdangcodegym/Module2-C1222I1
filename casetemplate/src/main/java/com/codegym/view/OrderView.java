@@ -1,6 +1,6 @@
 package com.codegym.view;
 
-import com.codegym.service.OrderService;
+import com.codegym.service.inmemory.IMOrderService;
 import com.codegym.model.Order;
 import com.codegym.model.OrderItem;
 
@@ -9,10 +9,10 @@ import java.util.Scanner;
 
 public class OrderView {
     private Scanner scanner = new Scanner(System.in);
-    private OrderService orderService;
+    private IMOrderService orderService;
 
     public OrderView() {
-        orderService = new OrderService();
+        orderService = new IMOrderService();
     }
     public void showOrderView() {
         List<Order> orders = orderService.getAllOrders();

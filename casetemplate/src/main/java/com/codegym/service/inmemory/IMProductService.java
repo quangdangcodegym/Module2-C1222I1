@@ -1,15 +1,16 @@
-package com.codegym.service;
+package com.codegym.service.inmemory;
 
 import com.codegym.model.Product;
+import com.codegym.service.IProductService;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class ProductService {
+public class IMProductService implements IProductService {
     private List<Product> products;
 
-    public ProductService() {
+    public IMProductService() {
         products = new ArrayList<>();
         products = new ArrayList<>();
         products.add(new Product(1L, "Iphone 11", "2 mat", 11000, new Date()));
@@ -20,12 +21,15 @@ public class ProductService {
     }
 
 
+    @Override
     public List<Product> getAllProducts() {
         return this.products;
     }
+    @Override
     public void addProduct(Product product) {
         products.add(product);
     }
+    @Override
     public void deleteProductById(long idProduct) {
         for (int i = 0; i < products.size(); i++) {
             if (products.get(i).getId() == idProduct) {
@@ -33,5 +37,10 @@ public class ProductService {
                 break;
             }
         }
+    }
+
+    @Override
+    public void updateProductById(long idProduct, Product product) {
+
     }
 }

@@ -12,3 +12,15 @@ Câu 2: Cập hạng khách hàng dựa vào số năm:
     + Neu trong khách hàng mà tiêu thụ (consumed) được 10tr thì từ normal-> đồng
     + Nếu tài khoản mà lên 50tr thi lên -> bạc
     + Nếu tài khoản mà lên 100tr thi lên -> vàng
+
+
+
+Bài tập ngày 22
+Bài 1: Về làm CRUD khách hàng:
+ + Tạo thì đầy đủ thông tin
+ + Sửa thì sửa tên, điện thoại, địa chỉ
+Bài 2: Tìm kiếm, sắp xếp khách hàng
+ + Tìm kiếm theo ID hoặc tên hoac địa chỉ hoặc số điện thoại
+ + Cho chọn sắp xếp theo tên, địa chỉ, ngày tạo
+
+Tương tự làm CRUD cho product mà lưu xuống file

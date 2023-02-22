@@ -1,7 +1,7 @@
 package com.codegym.model;
 
 public enum CustomerType {
-    NORLMAL(0L, "Normal"),
+    NORMAL(0L, "Normal"),
     SILVER(1L, "Khách hạng Bạc"),
     BRONZE(2L, "Khách hạng Đồng"),
     GOLD(3L, "Khách hạng Vàng");
@@ -24,6 +24,15 @@ public enum CustomerType {
         return name;
     }
 
+    public static CustomerType parseToCustomerType(String str) {
+        // str: NORMAL
+        for (CustomerType item : CustomerType.values()){
+            if (item.toString().equals(str)) {
+                return item;
+            }
+        }
+        return null;
+    }
     public void setName(String name) {
         this.name = name;
     }

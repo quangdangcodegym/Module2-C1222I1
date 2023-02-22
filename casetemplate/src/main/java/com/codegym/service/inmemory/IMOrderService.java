@@ -1,4 +1,4 @@
-package com.codegym.service;
+package com.codegym.service.inmemory;
 
 import com.codegym.model.Order;
 import com.codegym.model.OrderItem;
@@ -7,11 +7,11 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class OrderService {
+public class IMOrderService {
     private List<Order> orders;
 
 
-    public OrderService() {
+    public IMOrderService() {
         orders = new ArrayList<>();
         //Order(long id, String fullName, String phone, Date createAt, double total)
         Order o1 = new Order(1L, "Quang Dang", "0399", new Date(), 0);

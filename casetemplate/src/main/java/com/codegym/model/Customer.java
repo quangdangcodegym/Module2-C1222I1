@@ -1,5 +1,7 @@
 package com.codegym.model;
 
+import com.codegym.utils.DateUtils;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -83,5 +85,12 @@ public class Customer {
 
     public void setCustomerType(CustomerType customerType) {
         this.customerType = customerType;
+    }
+
+    @Override
+    public String toString() {
+        //1,Quang Dang,0399578134,28 NTP,20-12-2023 08:00,0,NORMAL
+        return String.format("%s,%s,%s,%s,%s,%s,%s", this.id,this.name,this.phone,
+        this.address, DateUtils.dateToString(this.createAt), this.consumed, this.customerType);
     }
 }

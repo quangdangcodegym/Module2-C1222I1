@@ -5,14 +5,53 @@ package com.codegym.iofile;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class IOFileMain {
+    private static Scanner scanner = new Scanner(System.in);
     public static void main(String[] args) {
 
+        do{
+            // numbers = [1,1,2]= > [1,1,2,4]
+            System.out.println("Moi chọn chức năng: ");
+            System.out.println("1. Thêm tổng các số ở trước vào cuối file");
+            System.out.println("2. Thêm số lớn nhất ở trước vào cuối file");
+
+            int actionMenu = Integer.parseInt(scanner.nextLine());
+            switch (actionMenu) {
+                case 1:
+                    addTotalToLastNumbersView();
+                    break;
+                case 2:
+                    addMaxToLastNumbersView();
+                    break;
+                default:
+
+            }
+        }while (true);
+
+    }
+
+    private static void addTotalToLastNumbersView() {
+        List<Integer> numbers1 = readNumbersFromFile("data.txt");
+        addTotalToLastNumbers(numbers1);
+        writeNumberToFile(numbers1,"data.txt");
+    }
+
+    private static void addMaxToLastNumbersView() {
         List<Integer> numbers = readNumbersFromFile("data.txt");
-        // numbers = [1,1,2]= > [1,1,2,4]
-        addTotalToLastNumbers(numbers);
-        writeNumberToFile(numbers, "data.txt");
+        addMaxToLastNumbers(numbers);
+        writeNumberToFile(numbers,"data.txt");
+    }
+
+    private static void addMaxToLastNumbers(List<Integer> numbers) {
+        int max = numbers.get(0);
+        for (int i = 0; i < numbers.size(); i++) {
+            if (numbers.get(i) >= max) {
+                max = numbers.get(i);
+            }
+        }
+        numbers.add(max);
     }
 
     private static void addTotalToLastNumbers(List<Integer> numbers) {

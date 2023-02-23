@@ -1,6 +1,7 @@
 package com.codegym.view;
 
 import com.codegym.model.Customer;
+import com.codegym.model.CustomerType;
 import com.codegym.service.file.FCustomerService;
 import com.codegym.service.ICustomerService;
 import com.codegym.utils.DateUtils;
@@ -25,6 +26,9 @@ public class CustomerView {
             switch (actionMenu) {
                 case 1:
                     showCustomersView();
+                    break;
+                case 2:
+                    addCustomerView();
                     break;
                 case 3:
                     editCustomerView();
@@ -54,6 +58,30 @@ public class CustomerView {
             }while (checkActionMenuContinue);
 
         } while (checkActionMenu);
+    }
+
+    private void addCustomerView() {
+        Customer customer = new Customer();
+
+        System.out.println("Nhập thông tin khách hàng:");
+        System.out.println("Nhập tên khách hàng:");
+        String name = scanner.nextLine();
+        System.out.println("Nhập số điện thoại khách hàng:");
+        String phoneCustomer= scanner.nextLine();
+        System.out.println(("Nhập địa chỉ khách hàng:"));
+        String address = scanner.nextLine();
+        System.out.println("Nhập ngày tạo:");
+        String createdAt = scanner.nextLine();
+
+
+        customer.setPhone(phoneCustomer);
+        customer.setAddress(address);
+        customer.setName(name);
+        customer.setCustomerType(CustomerType.NORMAL);
+        customer.setConsumed(0);
+        customer.setCreateAt(DateUtils.parseDate(createdAt));
+
+        customerService.addCustomer(customer);
     }
 
     private void editCustomerView() {

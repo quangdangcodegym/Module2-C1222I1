@@ -1,7 +1,6 @@
 package com.codegym;
 
 import com.codegym.view.CustomerView;
-import com.codegym.view.OrderView;
 
 import java.util.Scanner;
 

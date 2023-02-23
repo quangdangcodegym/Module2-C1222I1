@@ -1,3 +1,4 @@
+/**
 package com.codegym.service.inmemory;
 
 import com.codegym.model.Customer;
@@ -59,3 +60,4 @@ public class IMCustomerService implements ICustomerService {
 
 
 }
+**/

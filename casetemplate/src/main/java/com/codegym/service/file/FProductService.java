@@ -23,6 +23,6 @@ public class FProductService implements IProductService {
 
     @Override
     public void updateProductById(long idProduct, Product product) {
-        
+
     }
 }

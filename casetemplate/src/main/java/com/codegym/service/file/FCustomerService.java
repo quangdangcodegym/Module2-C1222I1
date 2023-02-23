@@ -10,10 +10,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FCustomerService implements ICustomerService {
+    private final String pathCustomer = "./data/customer.csv";
     @Override
     public List<Customer> getAllCustomers() {
         try {
-            FileReader fileReader = new FileReader("./data/customer.csv");
+            FileReader fileReader = new FileReader(pathCustomer);
             BufferedReader bufferedReader = new BufferedReader(fileReader);
 
             String line = null;
@@ -45,12 +46,12 @@ public class FCustomerService implements ICustomerService {
 
     @Override
     public Customer findCustomerById(long idCustomer) {
-        List<Customer> customers = getAllCustomers();
-        for (int i = 0; i < customers.size(); i++) {
-            if (customers.get(i).getId() == idCustomer) {
-                return customers.get(i);
-            }
-        }
+                    List<Customer> customers = getAllCustomers();
+                    for (int i = 0; i < customers.size(); i++) {
+                        if (customers.get(i).getId() == idCustomer) {
+                            return customers.get(i);
+                        }
+                    }
         return null;
     }
 
@@ -68,7 +69,7 @@ public class FCustomerService implements ICustomerService {
             }
         }
         try {
-            FileWriter fileWriter = new FileWriter("./data/customer.csv");
+            FileWriter fileWriter = new FileWriter(pathCustomer);
             for (int i = 0; i < customers.size(); i++) {
                 Customer c = customers.get(i);
                 fileWriter.write(c.toString());
@@ -82,5 +83,31 @@ public class FCustomerService implements ICustomerService {
         }
 
 
+    }
+
+    @Override
+    public void addCustomer(Customer customer) {
+        List<Customer> customers = getAllCustomers();
+        long lastId = 1;
+        if(customers.size()!=0){
+            Customer lastCustomer = customers.get(customers.size()-1);
+            lastId = lastCustomer.getId()+1;
+        }
+        customer.setId(lastId);
+        customers.add(customer);
+
+        try {
+            FileWriter fileWriter = new FileWriter(pathCustomer);
+            for (int i = 0; i < customers.size(); i++) {
+                Customer c = customers.get(i);
+                fileWriter.write(c.toString());
+                if (i != customers.size()) {
+                    fileWriter.write("\n");
+                }
+            }
+            fileWriter.close();
+        } catch (IOException fileNotFoundException) {
+            fileNotFoundException.printStackTrace();
+        }
     }
 }

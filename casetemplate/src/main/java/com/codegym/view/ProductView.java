@@ -1,6 +1,6 @@
 package com.codegym.view;
 
-import com.codegym.service.inmemory.IMProductService;
+import com.codegym.service.file.FProductService;
 import com.codegym.comparator.ComparatorByPrice;
 import com.codegym.model.Product;
 import com.codegym.service.IProductService;
@@ -72,7 +72,7 @@ public class ProductView {
     }
 
     public ProductView() {
-        productService = new IMProductService();
+        productService = new FProductService();
     }
     public void showProductsView() {
         List<Product> products = productService.getAllProducts();

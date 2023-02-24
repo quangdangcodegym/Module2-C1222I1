@@ -4,6 +4,7 @@ import com.codegym.model.Customer;
 import com.codegym.model.CustomerType;
 import com.codegym.service.ICustomerService;
 import com.codegym.utils.DateUtils;
+import com.codegym.utils.FileUtils;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -13,35 +14,7 @@ public class FCustomerService implements ICustomerService {
     private final String pathCustomer = "./data/customer.csv";
     @Override
     public List<Customer> getAllCustomers() {
-        try {
-            FileReader fileReader = new FileReader(pathCustomer);
-            BufferedReader bufferedReader = new BufferedReader(fileReader);
-
-            String line = null;
-            List<Customer> customers = new ArrayList<>();
-            while ((line = bufferedReader.readLine()) != null) {
-                // line: 1L,Quang Dang,0399578134,28 NTP,20-12-2023 08:00,0,NORMAL
-                String[] items = line.split(",");
-                Customer customer = new Customer();
-                customer.setId(Long.parseLong(items[0]));
-                customer.setName(items[1]);
-                customer.setPhone(items[2]);
-                customer.setAddress(items[3]);
-                customer.setCreateAt(DateUtils.parseDate(items[4]));
-                customer.setConsumed(Double.parseDouble(items[5]));
-                customer.setCustomerType(CustomerType.parseToCustomerType(items[6]));
-
-                customers.add(customer);
-            }
-            fileReader.close();
-            bufferedReader.close();
-            return customers;
-        } catch (FileNotFoundException fileNotFoundException) {
-            fileNotFoundException.printStackTrace();
-        } catch (IOException ioException) {
-            ioException.printStackTrace();
-        }
-        return null;
+        return FileUtils.readDataFromFile(pathCustomer, Customer.class);
     }
 
     @Override
@@ -68,19 +41,7 @@ public class FCustomerService implements ICustomerService {
                 customers.get(i).setCustomerType(customer.getCustomerType());
             }
         }
-        try {
-            FileWriter fileWriter = new FileWriter(pathCustomer);
-            for (int i = 0; i < customers.size(); i++) {
-                Customer c = customers.get(i);
-                fileWriter.write(c.toString());
-                if (i != customers.size()) {
-                    fileWriter.write("\n");
-                }
-            }
-            fileWriter.close();
-        } catch (IOException fileNotFoundException) {
-            fileNotFoundException.printStackTrace();
-        }
+        FileUtils.writeDataToFile(pathCustomer, customers);
 
 
     }
@@ -96,18 +57,6 @@ public class FCustomerService implements ICustomerService {
         customer.setId(lastId);
         customers.add(customer);
 
-        try {
-            FileWriter fileWriter = new FileWriter(pathCustomer);
-            for (int i = 0; i < customers.size(); i++) {
-                Customer c = customers.get(i);
-                fileWriter.write(c.toString());
-                if (i != customers.size()) {
-                    fileWriter.write("\n");
-                }
-            }
-            fileWriter.close();
-        } catch (IOException fileNotFoundException) {
-            fileNotFoundException.printStackTrace();
-        }
+        FileUtils.writeDataToFile(pathCustomer, customers);
     }
 }

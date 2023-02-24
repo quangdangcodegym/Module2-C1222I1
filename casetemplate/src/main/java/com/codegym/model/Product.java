@@ -1,9 +1,12 @@
 package com.codegym.model;
 
+import com.codegym.service.file.IModel;
+import com.codegym.utils.DateUtils;
+
 import java.util.Date;
 import java.util.Objects;
 
-public class Product {
+public class Product implements IModel<Product> {
     private long id;
     private String name;
     private String description;
@@ -65,8 +68,9 @@ public class Product {
     @Override
     public String toString() {
 //        return "Product " + this.name + " price: " + this.price;
-        return String.format("%s %s price: %s, description: %s, create At: %s",
-                this.getId(), this.getName(), this.getPrice(), this.getDescription(), this.getCreateAt());
+        //4,Iphone14,I phone 14 dep quá, 11000,20-12-2023 08:00
+        return String.format("%s,%s,%s,%s,%s", this.getId(), this.getName(), this.getDescription()
+                , this.getPrice(), DateUtils.dateToString(this.createAt));
     }
 
 
@@ -86,4 +90,19 @@ public class Product {
     public int hashCode() {
         return Objects.hash(this.name);
     }
+
+    @Override
+    public Product parseData(String line) {
+        String[] items = line.split(",");
+        Product product = new Product();
+        product.setId(Long.parseLong(items[0]));
+        product.setName(items[1]);
+        product.setDescription(items[2]);
+        product.setPrice(Double.parseDouble(items[3]));
+        product.setCreateAt(DateUtils.parseDate(items[4]));
+
+        return product;
+    }
+
+
 }

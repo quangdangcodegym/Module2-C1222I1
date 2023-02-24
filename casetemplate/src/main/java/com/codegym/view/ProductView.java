@@ -4,6 +4,7 @@ import com.codegym.service.file.FProductService;
 import com.codegym.comparator.ComparatorByPrice;
 import com.codegym.model.Product;
 import com.codegym.service.IProductService;
+import com.codegym.utils.DateUtils;
 
 import java.util.*;
 
@@ -77,7 +78,12 @@ public class ProductView {
     public void showProductsView() {
         List<Product> products = productService.getAllProducts();
         for (int i = 0; i < products.size(); i++) {
-            System.out.println(products.get(i));
+            Product p = products.get(i);
+            String fmtProduct = String.format("%5s | %10s | %10s | %10s | %10s",
+                    p.getId(), p.getName(), p.getPrice(),
+                    p.getDescription(), DateUtils.dateToString(p.getCreateAt()));
+
+            System.out.println(fmtProduct);
         }
     }
     public void showResultProductsView(List<Product> results) {

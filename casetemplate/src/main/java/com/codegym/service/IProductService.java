@@ -10,4 +10,6 @@ public interface IProductService {
     void deleteProductById(long idProduct);
 
     void updateProductById(long idProduct, Product product);
+
+    Product findProductById(long idProduct);
 }

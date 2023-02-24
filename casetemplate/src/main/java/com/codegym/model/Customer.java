@@ -1,12 +1,13 @@
 package com.codegym.model;
 
+import com.codegym.service.file.IModel;
 import com.codegym.utils.DateUtils;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class Customer {
+public class Customer implements IModel<Customer> {
     private long id;
     private String name;
     private String phone;
@@ -92,5 +93,19 @@ public class Customer {
         //1,Quang Dang,0399578134,28 NTP,20-12-2023 08:00,0,NORMAL
         return String.format("%s,%s,%s,%s,%s,%s,%s", this.id,this.name,this.phone,
         this.address, DateUtils.dateToString(this.createAt), this.consumed, this.customerType);
+    }
+
+    @Override
+    public Customer parseData(String line) {
+        String[] items = line.split(",");
+        Customer customer = new Customer();
+        customer.setId(Long.parseLong(items[0]));
+        customer.setName(items[1]);
+        customer.setPhone(items[2]);
+        customer.setAddress(items[3]);
+        customer.setCreateAt(DateUtils.parseDate(items[4]));
+        customer.setConsumed(Double.parseDouble(items[5]));
+        customer.setCustomerType(CustomerType.parseToCustomerType(items[6]));
+        return customer;
     }
 }

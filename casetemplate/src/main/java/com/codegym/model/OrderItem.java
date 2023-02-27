@@ -1,6 +1,8 @@
 package com.codegym.model;
 
-public class OrderItem {
+import com.codegym.service.file.IModel;
+
+public class OrderItem implements IModel<OrderItem> {
     private long id;
     private long idOrder;
     private long idProduct;
@@ -54,7 +56,29 @@ public class OrderItem {
         return price;
     }
 
+
+    @Override
+    public String toString() {
+        //1677419670,1677419650,1,5,11000
+        return String.format("%s,%s,%s,%s,%s", this.id, this.idOrder, this.idProduct, this.quantity, this.price);
+    }
+
     public void setPrice(double price) {
         this.price = price;
+    }
+
+    @Override
+    public OrderItem parseData(String line) {
+        //1,1,1,5,11000
+        // id,idOrder,idProduct,quantity,price
+        String[] items = line.split(",");
+        OrderItem orderItem = new OrderItem();
+        orderItem.setId(Long.parseLong(items[0]));
+        orderItem.setIdOrder(Long.parseLong(items[1]));
+        orderItem.setIdProduct(Long.parseLong(items[2]));
+        orderItem.setQuantity(Integer.parseInt(items[3]));
+        orderItem.setPrice(Double.parseDouble(items[4]));
+
+        return orderItem;
     }
 }

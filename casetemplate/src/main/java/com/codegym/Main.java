@@ -1,6 +1,7 @@
 package com.codegym;
 
 import com.codegym.view.CustomerView;
+import com.codegym.view.OrderView;
 import com.codegym.view.ProductView;
 
 import java.util.Scanner;
@@ -26,8 +27,8 @@ public class Main {
                     productView.launcher();
                     break;
                 case 3:
-//                    OrderView orderView = new OrderView();
-//                    orderView.laucher();
+                    OrderView orderView = new OrderView();
+                    orderView.launcher();
                     break;
                 default:
                     System.out.println("Nhập không đúng vui lòng nhập lại: ");

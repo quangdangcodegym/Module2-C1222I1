@@ -5,10 +5,17 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Demo {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         int []arr = {4, 12, 7, 8, 1, 6, 9};
 //        int index = minValue(arr);
 //        System.out.println("The smallest element is: " + arr[index]);
+
+        System.out.println(System.currentTimeMillis());
+        System.out.println(System.currentTimeMillis()/1000);
+
+        Thread.sleep(1000);
+
+        System.out.println(System.currentTimeMillis()/1000);
     }
     public void demoDate() {
         String sD2 = "20-02-2023 08:30";

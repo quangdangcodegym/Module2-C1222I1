@@ -13,7 +13,7 @@ public class DateUtils {
         try {
             return formatter.parse(sDate);
         } catch (ParseException parseException) {
-            parseException.printStackTrace();
+            LogUtils.logging(parseException.getStackTrace());
         }
         return null;
     }

@@ -26,6 +26,21 @@ public class FileUtils {
             fileNotFoundException.printStackTrace();
         }
     }
+    public static <T> void writeDataToFileAppend(String path, List<T> list, boolean append){
+        try {
+            FileWriter fileWriter = new FileWriter(path, append);
+            for (int i = 0; i < list.size(); i++) {
+                T item = list.get(i);
+                fileWriter.write(item.toString());
+                if (i != list.size()) {
+                    fileWriter.write("\n");
+                }
+            }
+            fileWriter.close();
+        } catch (IOException fileNotFoundException) {
+            fileNotFoundException.printStackTrace();
+        }
+    }
     public static <T> List<T> readDataFromFile(String path, Class<T> tClass){
         try {
             FileReader fileReader = new FileReader(path);

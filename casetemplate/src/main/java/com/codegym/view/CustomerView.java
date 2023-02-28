@@ -5,7 +5,9 @@ import com.codegym.model.CustomerType;
 import com.codegym.service.file.FCustomerService;
 import com.codegym.service.ICustomerService;
 import com.codegym.utils.DateUtils;
+import com.codegym.utils.ValidateUtils;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
@@ -63,15 +65,16 @@ public class CustomerView {
     private void addCustomerView() {
         Customer customer = new Customer();
 
-        System.out.println("Nhập thông tin khách hàng:");
-        System.out.println("Nhập tên khách hàng:");
-        String name = scanner.nextLine();
-        System.out.println("Nhập số điện thoại khách hàng:");
-        String phoneCustomer= scanner.nextLine();
+
+        String name = inputNameValid();
+        String phoneCustomer= inputPhoneValid();
+
+
         System.out.println(("Nhập địa chỉ khách hàng:"));
         String address = scanner.nextLine();
-        System.out.println("Nhập ngày tạo:");
-        String createdAt = scanner.nextLine();
+
+
+        Date dCreateAt = inputDateValid();
 
 
         customer.setPhone(phoneCustomer);
@@ -79,9 +82,62 @@ public class CustomerView {
         customer.setName(name);
         customer.setCustomerType(CustomerType.NORMAL);
         customer.setConsumed(0);
-        customer.setCreateAt(DateUtils.parseDate(createdAt));
+        customer.setCreateAt(dCreateAt);
 
         customerService.addCustomer(customer);
+    }
+
+    private Date inputDateValid() {
+        boolean checkDateValid = false;
+        String createdAt;
+        Date dCreateAt;
+        do{
+            System.out.println("Nhập ngày tạo:");
+            System.out.println("Ngày tạo theo định dạng: 20-10-2023 08:10");
+            createdAt = scanner.nextLine();
+            dCreateAt = DateUtils.parseDate(createdAt);
+            if (dCreateAt == null) {
+                checkDateValid = true;
+            }else{
+                checkDateValid = false;
+            }
+
+        }while (checkDateValid);
+        return dCreateAt;
+    }
+
+    private String inputPhoneValid() {
+        boolean checkPhoneValid = false;
+        String phone;
+        do{
+            System.out.println("Nhập số điện thoại: " );
+            System.out.println("Số điện thoại có thể 10-11 số bắt đầu từ 0: Ví dụ: 0399578133");
+            phone = scanner.nextLine();
+            if (!ValidateUtils.isPhoneValid(phone)) {
+                System.out.println("Số điện thoại chưa đúng vui lòng nhập lại");
+                checkPhoneValid = true;
+            }else{
+                checkPhoneValid = false;
+            }
+        }while (checkPhoneValid);
+        return phone;
+    }
+
+    private String inputNameValid() {
+        boolean checkNameValid = false;
+        String name;
+        do{
+            System.out.println("Nhập tên khách hàng: " );
+            System.out.println("Tên khách hàng từ 8-20 kí tự, bắt đầu bằng chữ cái: Ví dụ: Quang Dang");
+            name = scanner.nextLine();
+            if (!ValidateUtils.isNameValid(name)) {
+                System.out.println("Tên khách hàng chưa đúng vui lòng nhập lại");
+                checkNameValid = true;
+            }else{
+                checkNameValid = false;
+            }
+        }while (checkNameValid);
+        return name;
     }
 
     private void editCustomerView() {

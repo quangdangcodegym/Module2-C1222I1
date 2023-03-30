@@ -51,7 +51,7 @@ public class MyLinkedList<E> {
     }
 
     // nested class, lop long lop
-    private class Node {
+    private static class Node {
         private Node next;
         private Object data;
 
